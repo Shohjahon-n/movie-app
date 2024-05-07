@@ -6,6 +6,9 @@
         background: #161D2F;
         padding: 25px;
         border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         nav{
             ul{
                 padding-top: 40px;
@@ -20,6 +23,11 @@
                             fill:#5A698F;
                             &:hover{
                                 fill: red;
+                            }
+                        }
+                        &.active{
+                            svg{
+                                fill: white;
                             }
                         }
                     }
