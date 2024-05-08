@@ -12,7 +12,7 @@ export default function SignUp() {
                     <form action="">
                         <input type="text" placeholder='Username' />
                         <input type="password" placeholder='Password' />
-                        <input type="repeat password" placeholder='Password' />
+                        <input type="password" placeholder='Repeat Password' />
                         <button>Create an account</button>
                     </form>
                 </div>

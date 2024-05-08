@@ -1,6 +1,7 @@
-.main_sidebar{
+.main_sidebar {
     padding: 25px;
-    .sidebar{
+
+    .sidebar {
         width: max-content;
         height: 960px;
         background: #161D2F;
@@ -17,18 +18,21 @@
                 gap: 25px;
                 align-items: center;
                 list-style: none;
-                li{
-                    a{
-                        svg{
-                            fill:#5A698F;
-                            &:hover{
+
+                li {
+                    a {
+                        svg {
+                            fill: #5A698F;
+
+                            &:hover {
                                 fill: red;
                             }
                         }
-                        &.active{
-                            svg{
-                                fill: white;
-                            }
+                    }
+
+                    &.active {
+                        svg {
+                            fill: white;
                         }
                     }
                 }
