@@ -5,7 +5,7 @@ import icon from '../../assets/image/Movie.svg'
 import user from '../../assets/image/user-img.png'
 
 export default function Sidebar() {
-    const [activeLink, setActiveLink] = useState(null);
+    const [activeLink, setActiveLink] = useState(1);
 
     const handleSetActiveLink = (linkId) => {
         setActiveLink(linkId);

@@ -9,6 +9,9 @@
 body {
     background: #10141E;
 }
+::-webkit-scrollbar{
+    display: none;
+}
 
 .container {
     max-width: 1400px;
