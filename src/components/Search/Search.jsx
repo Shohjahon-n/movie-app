@@ -9,6 +9,7 @@ export default function Search() {
                 <input type="text" placeholder='Search for movies or TV series' />
             </div>
             <Trending/>
+            
         </div>
     )
 }
