@@ -2,7 +2,7 @@
     padding: 25px;
     .sidebar{
         width: max-content;
-        height: 100vh;
+        height: 960px;
         background: #161D2F;
         padding: 25px;
         border-radius: 15px;
@@ -11,10 +11,10 @@
         justify-content: space-between;
         nav{
             ul{
-                padding-top: 40px;
+                padding-top: 50px;
                 display: flex;
                 flex-direction: column;
-                gap: 15px;
+                gap: 25px;
                 align-items: center;
                 list-style: none;
                 li{
