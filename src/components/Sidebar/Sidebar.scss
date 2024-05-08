@@ -1,6 +1,7 @@
-.main_sidebar{
+.main_sidebar {
     padding: 25px;
-    .sidebar{
+
+    .sidebar {
         width: max-content;
         height: 100vh;
         background: #161D2F;
@@ -9,26 +10,30 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        nav{
-            ul{
+
+        nav {
+            ul {
                 padding-top: 40px;
                 display: flex;
                 flex-direction: column;
                 gap: 15px;
                 align-items: center;
                 list-style: none;
-                li{
-                    a{
-                        svg{
-                            fill:#5A698F;
-                            &:hover{
+
+                li {
+                    a {
+                        svg {
+                            fill: #5A698F;
+
+                            &:hover {
                                 fill: red;
                             }
                         }
-                        &.active{
-                            svg{
-                                fill: white;
-                            }
+                    }
+
+                    &.active {
+                        svg {
+                            fill: white;
                         }
                     }
                 }
