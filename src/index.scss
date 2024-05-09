@@ -9,13 +9,12 @@
 body {
     background: #10141E;
 }
-::-webkit-scrollbar{
+
+::-webkit-scrollbar {
     display: none;
 }
 
 .container {
+    width: 100%;
     max-width: 1400px;
-    height: 100vh;
-    margin: 0 auto;
-    background-color: red;
 }
