@@ -8,7 +8,6 @@ function App() {
         <Router>
             <div className="login">
                 <div style={{ display: 'flex', alignItems: 'flex-start', columnGap: '30px' }}>
-
                     <Sidebar />
                     <Search />
                 </div>

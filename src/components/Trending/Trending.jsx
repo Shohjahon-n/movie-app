@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import './Trending.scss';
@@ -28,7 +28,8 @@ export default function Trending() {
     ];
 
     return (
-        <div className="trending-main container">
+        <div className="trending-main">
+            <h2>Trending</h2>
             <Swiper
                 spaceBetween={130}
                 slidesPerView={3}
