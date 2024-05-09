@@ -5,8 +5,7 @@ import './Trending.scss';
 import img from '../../assets/image/test.png';
 import saveImg from '../../assets/image/save.png';
 import savedImg from '../../assets/image/saved.png';
-
-export default function Trending() {
+export default function Trending({ data }) {
     const [activeSaves, setActiveSaves] = useState([]);
 
     const toggleActiveSave = (linkId) => {
@@ -18,15 +17,7 @@ export default function Trending() {
             }
         });
     };
-
-    const movies = [
-        { id: 1, name: 'Beyond Earth', year: '2019', type: "Movie", img: img, save: saveImg, saved: savedImg },
-        { id: 2, name: 'Bottom Gear', year: '2021', type: "Movie", img: img, save: saveImg, saved: savedImg },
-        { id: 3, name: 'Undiscovered Cities', year: '2019', type: "TV Series", img: img, save: saveImg, saved: savedImg },
-        { id: 4, name: '1998', year: '2021', type: "movie", img: img, save: saveImg, saved: savedImg },
-        { id: 5, name: 'Dark Side Of The Moon', year: '2018', type: "TV Series", img: img, save: saveImg, saved: savedImg },
-    ];
-
+    const trending = data.filter(item => item.isTrending)
     return (
         <div className="trending-main">
             <h2>Trending</h2>
@@ -34,19 +25,23 @@ export default function Trending() {
                 spaceBetween={130}
                 slidesPerView={3}
             >
-                {movies.map(movie => (
-                    <SwiperSlide key={movie.id}>
+                {trending.map((movie, idx) => (
+                    <SwiperSlide key={idx}>
                         <div className="trending-card">
-                            <img src={movie.img} alt={movie.name} />
-                            {
+                            <img
+                                src={movie.isTrending ? movie.thumbnail.trending.small : movie.thumbnail.regular.medium}
+                                alt={movie.title}
+                            />
+                            {console.log(movie.thumbnail.trending.large)}
+                            {/* {
                                 activeSaves.includes(movie.id) ?
-                                    <img className='save' src={movie.saved} alt="saved" onClick={() => toggleActiveSave(movie.id)} />
+                                    <img className='save' src={savedImg} alt="saved" onClick={() => toggleActiveSave(movie.id)} />
                                     :
-                                    <img className='save' src={movie.save} alt="save" onClick={() => toggleActiveSave(movie.id)} />
-                            }
+                                    <img className='save' src={saveImg} alt="save" onClick={() => toggleActiveSave(movie.id)} />
+                            } */}
                             <div className='trending-card-text'>
                                 <p>{movie.year}</p>
-                                <h3>{movie.name}</h3>
+                                <h3>{movie.title}</h3>
                             </div>
                         </div>
                     </SwiperSlide>
