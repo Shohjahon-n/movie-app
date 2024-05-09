@@ -1,3 +1,40 @@
 .trending-main {
     margin: 50px 0;
+    color: #ffffff;
+
+    .trending-card {
+        width: 450px;
+        position: relative;
+
+        .save {
+            position: absolute;
+            top: 15px;
+            right: 0;
+            cursor: pointer;
+
+        }
+
+        .trending-card-text {
+            position: absolute;
+            bottom: 0;
+            padding: 25px 20px;
+
+
+            h3 {
+                font-family: Outfit;
+                font-size: 24px;
+                font-weight: 400;
+                line-height: 30.24px;
+                text-align: left;
+            }
+
+            p {
+                font-family: Outfit;
+                font-size: 15px;
+                font-weight: 400;
+                line-height: 18.9px;
+                text-align: left;
+            }
+        }
+    }
 }
