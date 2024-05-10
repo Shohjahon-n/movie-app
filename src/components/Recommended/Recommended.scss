@@ -1,0 +1,53 @@
+.recommend_content{
+    h3{
+        font-family: Outfit;
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 40.32px;
+        letter-spacing: -0.5px;
+        color: white;
+        padding-bottom: 30px;
+    }
+    .movies{
+        width: 100%;
+        max-width: 1240px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        column-gap: 20px;
+        row-gap: 40px;
+        .movie_card{
+            position: relative;
+            width: 280px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            overflow: hidden;
+            .movie_img{
+                padding-bottom: 5px;
+                img{
+                    border-radius: 10px;
+                }
+                .saved{
+                    cursor: pointer;
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                }
+            }
+            .movie_infos{
+                .movies_type{
+                    p{
+                        font-size: 13px;
+                        opacity: 0.75;
+                        padding-bottom: 5px;
+                        
+                    }
+                }
+                .movies_name{
+                    font-size: 18px;
+                    line-height: 22.68px;
+                }
+            }
+        }
+    }
+}

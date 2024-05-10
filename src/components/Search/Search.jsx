@@ -1,6 +1,7 @@
 import search from '../../assets/image/search.png'
 import './Search.scss'
 import Trending from '../Trending/Trending'
+import Recommended from '../Recommended/Recommended'
 export default function Search() {
     return (
         <div className='search_content container'>
@@ -9,7 +10,7 @@ export default function Search() {
                 <input type="text" placeholder='Search for movies or TV series' />
             </div>
             <Trending />
-
+            <Recommended/>
         </div>
     )
 }
