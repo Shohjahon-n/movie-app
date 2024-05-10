@@ -42,12 +42,35 @@
                     text-align: left;
                 }
 
-                p {
-                    font-family: Outfit;
-                    font-size: 15px;
-                    font-weight: 400;
-                    line-height: 18.9px;
-                    text-align: left;
+                .trending-about {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: start;
+                    column-gap: 8px;
+                    margin-bottom: 5px;
+
+                    .category {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        column-gap: 4px;
+
+                        img {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 12px;
+                            height: 12px;
+                        }
+                    }
+
+                    p {
+                        font-family: Outfit;
+                        font-size: 15px;
+                        font-weight: 400;
+                        line-height: 18.9px;
+                    }
                 }
             }
         }

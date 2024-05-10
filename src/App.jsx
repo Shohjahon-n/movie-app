@@ -6,7 +6,6 @@ import Search from './components/Search/Search'
 import { useState, useEffect } from 'react';
 function App() {
     const [data, setData] = useState([]);
-    const [trending, setTrending] = useState(null);
 
     useEffect(() => {
         fetch('https://server2425.onrender.com/data')

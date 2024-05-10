@@ -2,9 +2,12 @@ import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import './Trending.scss';
-import img from '../../assets/image/test.png';
+import movieImg from '../../assets/movie-ct.png';
+import tvImg from '../../assets/category-tv.png'
 import saveImg from '../../assets/image/save.png';
 import savedImg from '../../assets/image/saved.png';
+import ovalImg from '../../assets/oval.png'
+
 export default function Trending({ data }) {
     const [activeSaves, setActiveSaves] = useState([]);
 
@@ -39,7 +42,16 @@ export default function Trending({ data }) {
                                     <img className='save' src={saveImg} alt="save" onClick={() => toggleActiveSave(movie.id)} />
                             } */}
                             <div className='trending-card-text'>
-                                <p>{movie.year}</p>
+                                <div className="trending-about">
+                                    <p>{movie.year}</p>
+                                    <p className='oval'></p>
+                                    <div className="category">
+                                        {movie.category === 'Movie' ? <img src={movieImg} alt={movie.category} /> : <img src={tvImg} alt={movie.category} />}
+                                        <p>{movie.category}</p>
+                                    </div>
+                                    <p className='oval'></p>
+                                    <p>{movie.rating}</p>
+                                </div>
                                 <h3>{movie.title}</h3>
                             </div>
                         </div>

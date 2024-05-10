@@ -21,3 +21,11 @@ body {
     max-width: 1400px;
     margin: 0 auto;
 }
+
+.oval {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: white;
+    opacity: 0.5;
+}
