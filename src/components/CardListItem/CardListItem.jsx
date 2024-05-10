@@ -1,7 +1,7 @@
 import React from 'react'
 import './CardListItem.scss'
-import movieImg from '../../assets/image/movies-icon.svg';
-import tvImg from '../../assets/image/tv.svg'
+import movieImg from '../../assets/movie-ct.png';
+import tvImg from '../../assets/category-tv.png'
 export default function CardListItem({ movieimg, movieName, movieDate, movieType, movieRating }) {
     return (
         <div className='card_item'>
@@ -11,8 +11,12 @@ export default function CardListItem({ movieimg, movieName, movieDate, movieType
             <div className='movie_info'>
                 <div className="movie_about">
                     <p className="date">{movieDate}</p>
+                    <span className="oval"></span>
+                    <div className="category_movie">
                     {movieType === 'Movie' ? <img src={movieImg} alt={movieType} /> : <img src={tvImg} alt={movieType} />}
                     <p className="type">{movieType}</p>
+                    </div>
+                    <span className="oval"></span>
                     <p className="rating">{movieRating}</p>
                 </div>
                 <div className="movie_name">

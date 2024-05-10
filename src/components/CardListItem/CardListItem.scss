@@ -17,9 +17,18 @@
         }
         .movie_about{
             display: flex;
+            align-items: center;
             column-gap: 10px;
             padding-top: 3px;
             padding-bottom: 5px;
+            .category_movie{
+                display: flex;
+                align-items: center;
+                column-gap: 5px;
+                img{
+                    width: 12px;
+                }
+            }
             p{
                 font-size: 13px;
                 opacity: 0.75;
