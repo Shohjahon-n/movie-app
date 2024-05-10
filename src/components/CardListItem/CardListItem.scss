@@ -1,0 +1,29 @@
+.card_item{
+    width: 100%;
+    max-width: 280px;
+    .movie_img{
+        img{
+            border-radius: 10px;
+            width: 100%;
+            overflow: hidden;
+        }
+    }
+    .movie_info{
+        .movie_name{
+            h3{
+                font-size: 18px;
+                font-weight: 400;
+            }
+        }
+        .movie_about{
+            display: flex;
+            column-gap: 10px;
+            padding-top: 3px;
+            padding-bottom: 5px;
+            p{
+                font-size: 13px;
+                opacity: 0.75;
+            }
+        }
+    }
+}

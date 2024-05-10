@@ -3,13 +3,27 @@ import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import Sidebar from './components/Sidebar/Sidebar';
 import Search from './components/Search/Search'
+import { useState, useEffect } from 'react';
 function App() {
+    const [data, setData] = useState([]);
+    const [trending, setTrending] = useState(null);
+
+    useEffect(() => {
+        fetch('https://server2425.onrender.com/data')
+            .then(res => res.json())
+            .then(data => {
+                setData(data);
+            }).catch(err => console.log(err))
+    }, []);
+
+    console.log(data);
+
     return (
         <Router>
             <div className="login">
                 <div style={{ display: 'flex', alignItems: 'flex-start', columnGap: '30px' }}>
                     <Sidebar />
-                    <Search />
+                    <Search data={data} />
                 </div>
                 <Routes>
                     <Route path="/login" element={<Login />} />
