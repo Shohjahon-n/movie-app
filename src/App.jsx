@@ -22,10 +22,14 @@ function App() {
 
     console.log(data);
     const handleSearch = (e) => {
-        e.preventDefault()
+        if (value === '') {
+            setFilteredData(data)
+        }
+        console.log(value);
         setValue(e.target.value);
-        const filteredData = data.filter(item => item.title.toLowerCase().includes(value.toLowerCase()));
+        const filteredData = data.filter(item => item.title.toLowerCase().startsWith(value.toLowerCase()));
         setFilteredData(filteredData);
+        console.log(filteredData);
     }
 
     return (
