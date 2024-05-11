@@ -6,6 +6,7 @@ import user from '../../assets/image/user-img.png'
 
 export default function Sidebar() {
     const [activeLink, setActiveLink] = useState(1);
+    const [active, setActive] = useState(false)
 
     const handleSetActiveLink = (linkId) => {
         setActiveLink(linkId);
@@ -50,7 +51,11 @@ export default function Sidebar() {
                     </nav>
                 </div>
                 <div className="account_img">
-                    <img src={user} alt="user account" />
+                    <img src={user} alt="user account" onClick={() => setActive(!active)} />
+              { active ?     <div className="registired">
+                        <button><Link to={'login'}>Login</Link></button>
+                        <button><Link to={'sign-up'}>Sign In</Link></button>
+                    </div> : null}
                 </div>
             </div>
         </div>

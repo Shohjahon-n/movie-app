@@ -27,7 +27,7 @@ function App() {
             setValue('');
         } else {
             setValue(e.target.value);
-            const filter = data.filter((item) => item.title.toLowerCase().includes(e.target.value.toLowerCase()))
+            const filter = data.filter((item) => item.title.toLowerCase().startsWith(e.target.value.toLowerCase()))
             setFilteredData(filter);
         }
     }

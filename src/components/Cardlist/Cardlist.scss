@@ -1,9 +1,19 @@
+h4{
+    padding: 20px 10px;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+
+}
 .cardlist{
     width: 100%;
     max-width: 1240px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    column-gap: 15px;
     row-gap: 30px;
     padding-bottom: 40px;
+    padding-right: 25px;
+    padding-left: 25px;
 }
