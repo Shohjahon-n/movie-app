@@ -20,7 +20,6 @@ function App() {
             }).catch(err => console.log(err))
     }, []);
 
-    console.log(data);
     const handleSearch = (e) => {
         if (e.target.value === '') {
             setFilteredData(data);
