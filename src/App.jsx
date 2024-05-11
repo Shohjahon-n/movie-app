@@ -35,7 +35,7 @@ function App() {
     return (
         <Router>
             <div className="login">
-                <div style={{ display: 'flex',  alignItems: 'flex-start', columnGap: '30px' }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', columnGap: '30px' }}>
                     <Sidebar />
                     <Search loading={lodading} value={value} handleSearch={handleSearch}
                         filteredData={filteredData} data={data} />
