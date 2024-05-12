@@ -42,7 +42,7 @@
                     margin: 20px 0;
                     border: none;
                     outline: none;
-                    border-bottom: 1px solid #ffffff;
+                    border-bottom: 1px solid #ffffff28;
                     background-color: transparent;
                     color: #ffffff;
                     font-family: Outfit;
@@ -62,9 +62,10 @@
                 }
 
                 button {
+                    cursor: pointer;
                     border: none;
-                    background-color: #ffffff;
-                    color: #161D2F;
+                    background-color: red;
+                    color: white;
                     font-family: Outfit;
                     font-size: 15px;
                     font-weight: 400;
@@ -75,6 +76,10 @@
                     height: 48px;
                     border-radius: 5px;
                     margin: 30px 0;
+                    &:hover{
+                        color: #161D2F;
+                        background-color: #ffffff;
+                    }
                 }
             }
         }

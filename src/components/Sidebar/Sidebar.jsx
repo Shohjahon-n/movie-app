@@ -14,7 +14,6 @@ export default function Sidebar() {
     return (
         <div className="main_sidebar">
             <div className='sidebar'>
-                <div className="link_content">
                     <div className="icon">
                         <img src={icon} alt="movies icon" />
                     </div>
@@ -49,12 +48,11 @@ export default function Sidebar() {
                             </li>
                         </ul>
                     </nav>
-                </div>
                 <div className="account_img">
                     <img src={user} alt="user account" onClick={() => setActive(!active)} />
               { active ?     <div className="registired">
-                        <button><Link to={'login'}>Login</Link></button>
-                        <button><Link to={'sign-up'}>Sign In</Link></button>
+                        <button><Link to={'login'} onClick={() => setActive(!active)}>Login</Link></button>
+                        <button><Link to={'signup'} onClick={() => setActive(!active)} >Sign In</Link></button>
                     </div> : null}
                 </div>
             </div>

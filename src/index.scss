@@ -10,6 +10,7 @@ body {
     background: #10141E;
     color: white;
     font-family: 'Outfit';
+    min-height: 100vh;
 }
 
 ::-webkit-scrollbar {
@@ -32,4 +33,12 @@ body {
 a{
     text-decoration: none;
     color: black;
+}
+.layout{
+    display: flex;
+}
+@media only screen and (max-width: 890px){
+    .layout{
+        flex-direction: column;
+    }
 }
