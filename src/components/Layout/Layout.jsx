@@ -37,7 +37,7 @@ export default function Layout() {
             <Sidebar />
             <div className="center_content container">
                 <Search handleSearch={handleSearch} value={value} />
-                {loading ? <p className='loading'>Loading...</p> :
+                {loading ? <p className='loading'>Loading..</p> :
                     <>
                         <Trending data={data} />
                         <Cardlist data={filteredData} />
