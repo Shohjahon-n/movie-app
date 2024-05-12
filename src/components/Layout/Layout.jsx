@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import Search from '../Search/Search';
 import Sidebar from '../Sidebar/Sidebar';
 import Trending from '../Trending/Trending';
@@ -32,14 +32,18 @@ export default function Layout() {
         }
     }
 
-  return (
-    <div className='layout'>
-        <Sidebar/>
-        <div className="center_content container">
-            <Search handleSearch={handleSearch} value={value}/>
-            <Trending data={data}/>
-            <Cardlist data={data}/>
+    return (
+        <div className='layout'>
+            <Sidebar />
+            <div className="center_content container">
+                <Search handleSearch={handleSearch} value={value} />
+                {loading ? <p className='loading'>Loading...</p> :
+                    <>
+                        <Trending data={data} />
+                        <Cardlist data={filteredData} />
+                    </>
+                }
+            </div>
         </div>
-    </div>
-  )
+    )
 }
