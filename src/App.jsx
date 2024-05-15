@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import Layout from './components/Layout/Layout';
-import MovieLayout from './pages/movie/movies';
-import TVLayout from './pages/tv/tv';
-import LikedLayout from './pages/liked/liked';
+import Movie from './pages/movie/movies';
+import TV from './pages/tv/tv';
+import Liked from './pages/liked/liked';
 
 export default function App() {
     const [data, setData] = useState([]);
@@ -25,11 +25,11 @@ export default function App() {
         <Router>
             <Routes>
                 <Route path='/' element={<Layout data={data} loading={loading} />} />
-                <Route path='/movie' element={<MovieLayout data={data} loading={loading} />} />
-                <Route path='/tv' element={<TVLayout data={data} loading={loading} />} />
-                <Route path='/liked' element={<LikedLayout data={data} loading={loading} />} />
+                <Route path='/movie' element={<Movie data={data} loading={loading} />} />
+                <Route path='/tv' element={<TV data={data} loading={loading} />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/signup' element={<SignUp />} />
+                <Route path='/liked' element={<Liked data={data} loading={loading} />} />
             </Routes>
         </Router>
     );

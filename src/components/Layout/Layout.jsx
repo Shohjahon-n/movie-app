@@ -6,10 +6,10 @@ import Trending from '../../components/Trending/Trending';
 
 export default function Layout({ data, loading }) {
     const [value, setValue] = useState("");
-    const [filteredData, setFilteredData] = useState(data);
-
+    const [filteredData, setFilteredData] = useState(data.filter(item => !item.isTrending));
+    const mainData = data.filter(item => !item.isTrending);
     useEffect(() => {
-        setFilteredData(data);
+        setFilteredData(mainData);
     }, [data]);
 
     const handleInputChange = (e) => {
@@ -17,9 +17,9 @@ export default function Layout({ data, loading }) {
         setValue(value);
 
         if (value === '') {
-            setFilteredData(data);
+            setFilteredData(mainData);
         } else {
-            const filter = data.filter((item) =>
+            const filter = mainData.filter((item) =>
                 item.title.toLowerCase().startsWith(value.toLowerCase())
             );
             setFilteredData(filter);

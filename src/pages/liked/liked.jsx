@@ -5,16 +5,16 @@ import Cardlist from '../../components/Cardlist/Cardlist';
 
 export default function Liked({ data, loading }) {
     const [value, setValue] = useState('');
-    const [filteredData, setFilteredData] = useState(data.filter(item => item.liked));
+    const [filteredData, setFilteredData] = useState(data.filter(item => item.isBookmarked));
 
     const handleSearch = (e) => {
         e.preventDefault();
         if (e.target.value === '') {
-            setFilteredData(data.filter(item => item.liked));
+            setFilteredData(data.filter(item => item.isBookmarked));
             setValue('');
         } else {
             setValue(e.target.value);
-            const filter = data.filter((item) => item.liked && item.title.toLowerCase().startsWith(e.target.value.toLowerCase()));
+            const filter = data.filter((item) => item.isBookmarked && item.title.toLowerCase().startsWith(e.target.value.toLowerCase()));
             setFilteredData(filter);
         }
     };
