@@ -1,42 +1,36 @@
-import { useState, useEffect } from 'react'
-import Search from '../Search/Search';
-import Sidebar from '../Sidebar/Sidebar';
-import Trending from '../Trending/Trending';
-import Cardlist from '../Cardlist/Cardlist';
+import { useState, useEffect } from 'react';
+import Search from '../../components/Search/Search';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import Cardlist from '../../components/Cardlist/Cardlist';
+import Trending from '../../components/Trending/Trending';
 
-export default function Layout() {
-    const [data, setData] = useState([]);
-    const [value, setValue] = useState('');
-    const [loading, setLoading] = useState(true);
-    const [filteredData, setFilteredData] = useState([]);
+export default function Layout({ data, loading }) {
+    const [value, setValue] = useState("");
+    const [filteredData, setFilteredData] = useState(data);
 
     useEffect(() => {
-        fetch('https://server2425.onrender.com/data')
-            .then(res => res.json())
-            .then(data => {
-                setData(data);
-                setFilteredData(data);
-                setLoading(false);
-            }).catch(err => console.log(err))
-    }, []);
+        setFilteredData(data);
+    }, [data]);
 
-    const handleSearch = (e) => {
-        e.preventDefault();
-        if (e.target.value === '') {
+    const handleInputChange = (e) => {
+        let value = e.target.value;
+        setValue(value);
+
+        if (value === '') {
             setFilteredData(data);
-            setValue('');
         } else {
-            setValue(e.target.value);
-            const filter = data.filter((item) => item.title.toLowerCase().startsWith(e.target.value.toLowerCase()))
+            const filter = data.filter((item) =>
+                item.title.toLowerCase().startsWith(value.toLowerCase())
+            );
             setFilteredData(filter);
         }
-    }
-
+    };
+    console.log(filteredData);
     return (
         <div className='layout'>
             <Sidebar />
             <div className="center_content container">
-                <Search handleSearch={handleSearch} value={value} />
+                <Search handleSearch={handleInputChange} value={value} />
                 {loading ? <p className='loading'>Loading..</p> :
                     <>
                         <Trending data={data} />
@@ -45,5 +39,5 @@ export default function Layout() {
                 }
             </div>
         </div>
-    )
+    );
 }
