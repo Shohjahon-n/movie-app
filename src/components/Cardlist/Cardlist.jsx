@@ -37,9 +37,9 @@ export default function Cardlist({ data }) {
             <div className='cardlist'>
                 {
                     data.map((item, idx) => {
-                        let { title, rating, year, category, thumbnail, id } = item
+                        let { title, rating, year, category, thumbnail, id, isBookmarked } = item
                         return (
-                            <CardListItem key={idx} movieId={id} movieimg={thumbnail} movieName={title} movieDate={year} movieType={category} movieRating={rating} />
+                            <CardListItem key={idx} isBookmarked={isBookmarked} movieId={id} movieimg={thumbnail} movieName={title} movieDate={year} movieType={category} movieRating={rating} />
                         )
                     })
                 }

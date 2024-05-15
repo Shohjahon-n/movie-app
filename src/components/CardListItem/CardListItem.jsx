@@ -4,7 +4,7 @@ import movieImg from '../../assets/movie-ct.png';
 import tvImg from '../../assets/category-tv.png'
 import saveImg from '../../assets/image/save.png';
 import savedImg from '../../assets/image/saved.png';
-export default function CardListItem({ movieimg, movieName, movieDate, movieType, movieRating, movieId }) {
+export default function CardListItem({ movieimg, movieName, movieDate, movieType, movieRating, movieId, isBookmarked }) {
     const [bookmarked, setBookmarked] = useState({});
 
     const toggleBookmark = (movieId) => {
@@ -13,14 +13,19 @@ export default function CardListItem({ movieimg, movieName, movieDate, movieType
             [movieId]: !prev[movieId]
         }));
     };
+    console.log(isBookmarked);
     return (
         <div className='card_item'>
             <div className="movie_img">
-                {bookmarked[movieId] ?
+                {isBookmarked ?
                     <img className='save' onClick={() => toggleBookmark(movieId)} src={savedImg} alt="Unsave" />
                     :
-                    <img className='save' onClick={() => toggleBookmark(movieId)} src={saveImg} alt="Save" />
+                    bookmarked[movieId] ?
+                        <img className='save' onClick={() => toggleBookmark(movieId)} src={savedImg} alt="Unsave" />
+                        :
+                        <img className='save' onClick={() => toggleBookmark(movieId)} src={saveImg} alt="Save" />
                 }
+
                 <img src={movieimg.regular.large} alt={movieName} />
             </div>
             <div className='movie_info'>

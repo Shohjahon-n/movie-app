@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import Search from '../../components/Search/Search';
-import Sidebar from '../../components/Sidebar/Sidebar';
 import Cardlist from '../../components/Cardlist/Cardlist';
 import Trending from '../../components/Trending/Trending';
 
@@ -28,7 +27,6 @@ export default function Layout({ data, loading }) {
     console.log(filteredData);
     return (
         <div className='layout'>
-            <Sidebar />
             <div className="center_content container">
                 <Search handleSearch={handleInputChange} value={value} />
                 {loading ? <p className='loading'>Loading..</p> :

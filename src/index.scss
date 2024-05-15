@@ -30,15 +30,26 @@ body {
     background: white;
     opacity: 0.5;
 }
-a{
+
+a {
     text-decoration: none;
     color: black;
 }
-.layout{
+
+.layout {
     display: flex;
 }
-@media only screen and (max-width: 890px){
-    .layout{
+
+.main-center {
+    display: flex;
+}
+
+@media only screen and (max-width: 890px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .main-center {
         flex-direction: column;
     }
 }
