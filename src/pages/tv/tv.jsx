@@ -2,19 +2,20 @@ import { useState } from 'react';
 import Search from '../../components/Search/Search';
 import Cardlist from '../../components/Cardlist/Cardlist';
 
-export default function Tv({ data, loading }) {
+export default function Tv({ data }) {
     const [value, setValue] = useState('');
     const [filteredData, setFilteredData] = useState(data.filter(item => item.category === 'TV Series'));
 
     const handleSearch = (e) => {
-        e.preventDefault();
-        if (e.target.value === '') {
-            setFilteredData(data.filter(item => item.type === 'tv'));
-            setValue('');
+        const searchValue = e.target.value;
+        setValue(searchValue);
+        if (searchValue === '') {
+            setFilteredData(data.filter(item => item.category === "TV Series"));
         } else {
-            setValue(e.target.value);
-            const filter = data.filter((item) => item.type === 'tv' && item.title.toLowerCase().startsWith(e.target.value.toLowerCase()));
-            setFilteredData(filter);
+            const filtered = data.filter(item =>
+                item.category === "TV Series" && item.title.toLowerCase().includes(searchValue.toLowerCase())
+            );
+            setFilteredData(filtered);
         }
     };
 
@@ -22,7 +23,7 @@ export default function Tv({ data, loading }) {
         <div className='layout'>
             <div className="center_content container">
                 <Search handleSearch={handleSearch} value={value} />
-                {loading ? <p className='loading'>Loading..</p> : <Cardlist data={filteredData} />}
+                <Cardlist data={filteredData} />
             </div>
         </div>
     );

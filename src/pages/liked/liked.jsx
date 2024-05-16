@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Search from '../../components/Search/Search';
 import Cardlist from '../../components/Cardlist/Cardlist';
 
-export default function Liked({ data, loading }) {
+export default function Liked({ data }) {
     const [value, setValue] = useState('');
     const [filteredData, setFilteredData] = useState(data.filter(item => item.isBookmarked));
 
@@ -21,7 +21,7 @@ export default function Liked({ data, loading }) {
         <div className='layout'>
             <div className="center_content container">
                 <Search handleSearch={handleSearch} value={value} />
-                {loading ? <p className='loading'>Loading..</p> : <Cardlist data={filteredData} />}
+                <Cardlist data={filteredData} />
             </div>
         </div>
     );
