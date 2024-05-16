@@ -37,6 +37,7 @@ a{
 .layout{
     display: flex;
 }
+
 @media only screen and (max-width: 890px){
     .layout{
         flex-direction: column;
