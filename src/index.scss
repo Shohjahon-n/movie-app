@@ -44,6 +44,10 @@ a {
     display: flex;
 }
 
+.loading {
+    margin: 0 auto;
+}
+
 @media only screen and (max-width: 890px) {
     .layout {
         flex-direction: column;

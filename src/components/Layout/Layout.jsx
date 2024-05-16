@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import Search from '../../components/Search/Search';
 import Cardlist from '../../components/Cardlist/Cardlist';
 import Trending from '../../components/Trending/Trending';
-
 export default function Layout({ data, loading }) {
     const [value, setValue] = useState("");
     const [filteredData, setFilteredData] = useState(data.filter(item => !item.isTrending));
