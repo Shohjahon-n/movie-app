@@ -6,17 +6,25 @@ export default function SignUp({ setForm }) {
     const [password, setPassword] = useState('');
     const [rePassword, setRePassword] = useState('');
     const [toLog, setToLog] = useState(false);
+    const [error, setError] = useState('');
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (password === rePassword) {
-            setForm({ user, password });    
-            setToLog(true);
+
+        if (user && password && rePassword && user.length >= 4 && password.length >= 6) {
+            if (password === rePassword) {
+                setForm({ user, password });
+                setToLog(true);
+            } else {
+                setPassword('');
+                setRePassword('');
+                setToLog(false);
+                setError('Passwords do not match');
+            }
         } else {
-            setPassword('');
-            setRePassword('');
             setToLog(false);
+            setError('Cannot be empty or minimum 6 characters');
         }
     }
 
@@ -32,6 +40,7 @@ export default function SignUp({ setForm }) {
                         <input type="text" placeholder='Username' value={user} onChange={(e) => setUser(e.target.value)} />
                         <input type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
                         <input type="password" placeholder='Repeat Password' value={rePassword} onChange={(e) => setRePassword(e.target.value)} />
+                        <span style={{ color: 'red', fontSize: '12px' }}>{error}</span>
                         <button>Create an account</button>
                         {toLog && <Navigate to="/login" />}
                     </form>
