@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Login from "./components/Login/Login";
-import Layout from './components/Layout/Layout';
+import SignUp from './components/SignUp/SignUp'
+import Layout from './Layout/Layout';
 import Movie from './pages/movie/movies';
 import TV from './pages/tv/tv';
 import Liked from './pages/liked/liked';
@@ -36,7 +37,7 @@ export default function App() {
                             <Route path='/liked' element={<Liked data={data} />} />
                         </Route>
                         <Route path='/login' element={<Login />} />
-                        <Route path='/liked' element={<Liked data={data} />} />
+                        <Route path='/signup' element={<SignUp />} />
                     </Routes>
                 </Router>
             }

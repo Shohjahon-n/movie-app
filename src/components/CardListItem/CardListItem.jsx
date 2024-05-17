@@ -13,7 +13,6 @@ export default function CardListItem({ movieimg, movieName, movieDate, movieType
             [movieId]: !prev[movieId]
         }));
     };
-    console.log(isBookmarked);
     return (
         <div className='card_item'>
             <div className="movie_img">

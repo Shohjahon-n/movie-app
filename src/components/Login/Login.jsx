@@ -24,6 +24,11 @@ export default function Login() {
                         <button>Login to your account</button>
                     </form>
                 </div>
+                <div className="to-sign-up"> Already have an account?
+                    <span>
+                        <Link to="/signup">  Sign Up</Link>
+                    </span>
+                </div>
             </div>
         </div>
     )

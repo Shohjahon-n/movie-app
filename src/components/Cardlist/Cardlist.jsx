@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react'
 export default function Cardlist({ data }) {
     let [type, setType] = useState('')
     useEffect(() => {
-        console.log("Data prop:", data);
-
         let hasMovie = false;
         let hasTVSeries = false;
         let hasBookmarks = false;

@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './Sidebar.scss'
 import icon from '../../assets/image/Movie.svg'
 import user from '../../assets/image/user-img.png'
+import './Sidebar.scss'
 
 export default function Sidebar() {
     const [activeLink, setActiveLink] = useState(1);
@@ -52,6 +52,7 @@ export default function Sidebar() {
                     <img src={user} alt="user account" onClick={() => setActive(!active)} />
                     {active ? <div className="registired">
                         <button><Link to={'login'} onClick={() => setActive(!active)}>Login</Link></button>
+                        <button><Link to={'signup'} onClick={() => setActive(!active)}>Sign Up</Link></button>
                     </div> : null}
                 </div>
             </div>
