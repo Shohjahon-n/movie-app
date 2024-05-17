@@ -13,7 +13,7 @@ export default function Cardlist({ data }) {
                 hasMovie = true;
             } else if (item.category === 'TV Series') {
                 hasTVSeries = true;
-            } else if (item.category === 'bookmarks') {
+            } else if (item.isBookmarked) {
                 hasBookmarks = true;
             }
         });
@@ -24,9 +24,11 @@ export default function Cardlist({ data }) {
             setType('Movies');
         } else if (hasTVSeries) {
             setType('TV Series');
-        } else {
+        } 
+        else if(hasBookmarks)
+        {
             setType('Bookmarks');
-        }
+        }   
     }, [data]);
 
     return (

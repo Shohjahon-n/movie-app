@@ -9,9 +9,6 @@ export default function Sidebar() {
     const [active, setActive] = useState(false)
     const handleLogout = () => {
         setActive(!active);
-        // let auth2 = localStorage.getItem('auth');
-        // auth2 = false
-        // localStorage.setItem('auth', auth2);
         localStorage.removeItem('auth');
     }
     const handleSetActiveLink = (linkId) => {

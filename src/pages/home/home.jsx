@@ -16,7 +16,7 @@ export default function Home({ data }) {
             setFilteredData(filter);
         }
     };
-
+    console.log(data);
     return (
         <div className='layout'>
             <div className="center_content container">
