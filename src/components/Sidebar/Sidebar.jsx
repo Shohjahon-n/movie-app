@@ -7,7 +7,13 @@ import './Sidebar.scss'
 export default function Sidebar() {
     const [activeLink, setActiveLink] = useState(1);
     const [active, setActive] = useState(false)
-
+    const handleLogout = () => {
+        setActive(!active);
+        // let auth2 = localStorage.getItem('auth');
+        // auth2 = false
+        // localStorage.setItem('auth', auth2);
+        localStorage.removeItem('auth');
+    }
     const handleSetActiveLink = (linkId) => {
         setActiveLink(linkId);
     };
@@ -51,8 +57,7 @@ export default function Sidebar() {
                 <div className="account_img">
                     <img src={user} alt="user account" onClick={() => setActive(!active)} />
                     {active ? <div className="registired">
-                        <button><Link to={'login'} onClick={() => setActive(!active)}>Login</Link></button>
-                        <button><Link to={'signup'} onClick={() => setActive(!active)}>Sign Up</Link></button>
+                        <button><Link to={'login'} onClick={handleLogout}>Log Out</Link></button>
                     </div> : null}
                 </div>
             </div>
