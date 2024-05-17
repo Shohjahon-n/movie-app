@@ -12,19 +12,19 @@ export default function Login({ form }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(login === '' || password === ''){
-            setLoginError('Please enter username');
-            setPasswordError('Please enter password');
+        setLoginError('');
+        setPasswordError('');
             if (login === form.user && password === form.password) {
                 localStorage.setItem('auth', 'true');
                 navigate('/home');
-            }else{
-                setLoginError('Username or password is incorrect');
-            }   
-        }else{
-            setLoginError('');
-            setPasswordError('');
-        }
+            } else {
+                if (login !== form.user) {
+                    setLoginError('Username is incorrect');
+                }
+                if (password !== form.password) {
+                    setPasswordError('Password is incorrect');
+                }
+            }
     }
 
     return (
