@@ -52,7 +52,6 @@ export default function Sidebar() {
                     <img src={user} alt="user account" onClick={() => setActive(!active)} />
                     {active ? <div className="registired">
                         <button><Link to={'login'} onClick={() => setActive(!active)}>Login</Link></button>
-                        <button><Link to={'signup'} onClick={() => setActive(!active)} >Sign In</Link></button>
                     </div> : null}
                 </div>
             </div>

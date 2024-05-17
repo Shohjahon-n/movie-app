@@ -5,6 +5,8 @@ import Layout from './components/Layout/Layout';
 import Movie from './pages/movie/movies';
 import TV from './pages/tv/tv';
 import Liked from './pages/liked/liked';
+import Sidebar from './components/Sidebar/Sidebar';
+import loadingImg from './assets/loadingImg.svg';
 
 export default function App() {
     const [data, setData] = useState([]);
@@ -21,14 +23,19 @@ export default function App() {
     }, []);
     console.log(data);
     return (
-        <Router>
-            <Routes>
-                <Route path='/' element={<Layout data={data} loading={loading} />} />
-                <Route path='/movie' element={<Movie data={data} loading={loading} />} />
-                <Route path='/tv' element={<TV data={data} loading={loading} />} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/liked' element={<Liked data={data} loading={loading} />} />
-            </Routes>
-        </Router>
+        <div className="main-center">
+            {loading ? <img className='loading' src={loadingImg} alt="" /> :
+                <Router>
+                    <Sidebar />
+                    <Routes>
+                        <Route path='/' element={<Layout data={data} />} />
+                        <Route path='/movie' element={<Movie data={data} />} />
+                        <Route path='/tv' element={<TV data={data} />} />
+                        <Route path='/login' element={<Login />} />
+                        <Route path='/liked' element={<Liked data={data} />} />
+                    </Routes>
+                </Router>
+            }
+        </div>
     );
 }

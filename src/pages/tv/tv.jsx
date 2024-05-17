@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Search from '../../components/Search/Search';
-import Sidebar from '../../components/Sidebar/Sidebar';
 import Cardlist from '../../components/Cardlist/Cardlist';
 
 export default function Tv({ data, loading }) {
@@ -21,7 +20,6 @@ export default function Tv({ data, loading }) {
 
     return (
         <div className='layout'>
-            <Sidebar />
             <div className="center_content container">
                 <Search handleSearch={handleSearch} value={value} />
                 {loading ? <p className='loading'>Loading..</p> : <Cardlist data={filteredData} />}
