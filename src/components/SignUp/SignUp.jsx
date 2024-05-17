@@ -12,7 +12,7 @@ export default function SignUp({ setForm }) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (user && password && rePassword) {
+        if (user && password && rePassword && user.length >= 4 && password.length >= 6) {
             if (password === rePassword) {
                 setForm({ user, password });
                 setToLog(true);
@@ -24,7 +24,7 @@ export default function SignUp({ setForm }) {
             }
         } else {
             setToLog(false);
-            setError('Cannot be empty');
+            setError('Cannot be empty or minimum 6 characters');
         }
     }
 
