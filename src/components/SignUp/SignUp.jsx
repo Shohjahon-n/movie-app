@@ -40,7 +40,7 @@ export default function SignUp({ setForm }) {
                         <input type="text" placeholder='Username' value={user} onChange={(e) => setUser(e.target.value)} />
                         <input type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
                         <input type="password" placeholder='Repeat Password' value={rePassword} onChange={(e) => setRePassword(e.target.value)} />
-                        <span style={{ color: 'red', fontSize: '12px' }}>{error}</span>
+                        <span className='signerror' style={{ color: 'red', fontSize: '12px' }}>{error}</span>
                         <button>Create an account</button>
                         {toLog && <Navigate to="/login" />}
                     </form>
