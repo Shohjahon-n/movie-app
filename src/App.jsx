@@ -24,7 +24,6 @@ export default function App() {
             })
             .catch(err => console.log(err));
     }, []);
-    console.log(form);
     return (
         <div className="main-center">
             {loading ? <img className='loading' src={loadingImg} alt="Loading..." /> :
@@ -41,7 +40,7 @@ export default function App() {
                         </Route>
                         <Route path="/login" element={<Login form={form} />} />
                         <Route path="/signup" element={<SignUp setForm={setForm} />} />
-                        <Route path='*' element={<ErrorPage/>}/>
+                        <Route path='*' element={<ErrorPage />} />
                     </Routes>
                 </Router>
             }
