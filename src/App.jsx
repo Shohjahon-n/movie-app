@@ -8,6 +8,7 @@ import TV from './pages/tv/tv';
 import Liked from './pages/liked/liked';
 import Home from './pages/home/home';
 import loadingImg from './assets/loadingImg.svg';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 export default function App() {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -38,6 +39,7 @@ export default function App() {
                         </Route>
                         <Route path='/login' element={<Login />} />
                         <Route path='/signup' element={<SignUp />} />
+                        <Route path='*' element={<ErrorPage/>}/>
                     </Routes>
                 </Router>
             }
