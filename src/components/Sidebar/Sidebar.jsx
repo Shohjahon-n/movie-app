@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './Sidebar.scss'
 import icon from '../../assets/image/Movie.svg'
 import user from '../../assets/image/user-img.png'
+import './Sidebar.scss'
 
 export default function Sidebar() {
     const [activeLink, setActiveLink] = useState(1);

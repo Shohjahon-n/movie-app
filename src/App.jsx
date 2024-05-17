@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { useState, useEffect } from 'react';
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
-import Layout from './components/Layout/Layout';
+import Layout from './Layout/Layout';
 import Movie from './pages/movie/movies';
 import TV from './pages/tv/tv';
 import Liked from './pages/liked/liked';
@@ -21,8 +21,6 @@ export default function App() {
             })
             .catch(err => console.log(err));
     }, []);
-
-    console.log(data);
 
     return (
         <div className="main-center">
