@@ -26,7 +26,10 @@ export default function App() {
     }, []);
     return (
         <div className="main-center">
-            {loading ? <img className='loading' src={loadingImg} alt="Loading..." /> :
+            {loading ?
+                <div className="loading-content">
+                    <img className='loading' src={loadingImg} alt="Loading..." />
+                </div> :
                 <Router>
                     <Routes>
                         <Route path="/" element={<Navigate to="/login" />} />
