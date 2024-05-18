@@ -1,34 +1,35 @@
 import CardListItem from '../CardListItem/CardListItem'
 import './Cardlist.scss'
 import { useState, useEffect } from 'react'
+
 export default function Cardlist({ data }) {
     let [type, setType] = useState('')
+
     useEffect(() => {
         let hasMovie = false;
         let hasTVSeries = false;
-        let hasBookmarks = false;
+        let allBookmarked = true;
 
         data.forEach(item => {
+            if (!item.isBookmarked) {
+                allBookmarked = false;
+            }
             if (item.category === 'Movie') {
                 hasMovie = true;
             } else if (item.category === 'TV Series') {
                 hasTVSeries = true;
-            } else if (item.isBookmarked) {
-                hasBookmarks = true;
             }
         });
 
-        if (hasMovie && hasTVSeries) {
+        if (allBookmarked) {
+            setType('Bookmarks');
+        } else if (hasMovie && hasTVSeries) {
             setType('Recommended for you');
         } else if (hasMovie) {
             setType('Movies');
         } else if (hasTVSeries) {
             setType('TV Series');
-        } 
-        else if(hasBookmarks)
-        {
-            setType('Bookmarks');
-        }   
+        }
     }, [data]);
 
     return (
@@ -44,7 +45,6 @@ export default function Cardlist({ data }) {
                     })
                 }
             </div>
-
         </>
     )
 }
