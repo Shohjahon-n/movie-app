@@ -16,13 +16,19 @@ export default function App() {
     const [form, setForm] = useState({});
 
     useEffect(() => {
-        fetch('https://server2425.onrender.com/data')
-            .then(res => res.json())
-            .then(data => {
-                setData(data);
+        const fetchData = async () => {
+            try {
+                const res = await fetch('https://server2425.onrender.com/data');
+                const result = await res.json();
+                setData(result);
                 setLoading(false);
-            })
-            .catch(err => console.log(err));
+            } catch (err) {
+                console.log("Error fetching data: ", err);
+                setLoading(false);
+            }
+        };
+
+        fetchData();
     }, []);
     return (
         <div className="main-center">
