@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 export default function Cardlist({ data }) {
     const [type, setType] = useState('');
-    const [showDefaultMessage, setShowDefaultMessage] = useState(false);
+    const [notFound, setnotFound] = useState(false);
 
     useEffect(() => {
         let hasMovie = false;
@@ -12,9 +12,9 @@ export default function Cardlist({ data }) {
         let allBookmarked = true;
 
         if (data.length === 0) {
-            setShowDefaultMessage(true);
+            setnotFound(true);
         } else {
-            setShowDefaultMessage(false);
+            setnotFound(false);
             data.forEach(item => {
                 if (!item.isBookmarked) {
                     allBookmarked = false;
@@ -43,7 +43,7 @@ export default function Cardlist({ data }) {
             <h4>{type}</h4>
             <div className='cardlist'>
                 {
-                    showDefaultMessage ? (
+                    notFound ? (
                         <p className='movie-not-found'>This movie is not found</p>
                     ) : (
                         data.map((item, idx) => {
