@@ -17,7 +17,6 @@ export default function SignUp({ setForm }) {
                 setForm({ user, password });
                 setToLog(true);
             } else {
-                setPassword('');
                 setRePassword('');
                 setToLog(false);
                 setError('Passwords do not match');

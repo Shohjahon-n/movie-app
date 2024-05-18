@@ -1,11 +1,12 @@
-h4{
+h4 {
     padding: 20px 10px;
     font-size: 32px;
     font-weight: 400;
     letter-spacing: -0.5px;
 
 }
-.cardlist{
+
+.cardlist {
     width: 100%;
     max-width: 1240px;
     display: flex;
@@ -16,4 +17,12 @@ h4{
     padding-bottom: 40px;
     padding-right: 25px;
     padding-left: 25px;
+
+    .movie-not-found {
+        font-size: 32px;
+        font-weight: 400;
+        letter-spacing: -0.5px;
+        text-align: center;
+        color: red;
+    }
 }

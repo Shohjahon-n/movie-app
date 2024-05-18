@@ -4,7 +4,7 @@ import Trending from '../../components/Trending/Trending';
 import { useState } from 'react';
 export default function Home({ data }) {
     const [value, setValue] = useState('');
-    const [filteredData, setFilteredData] = useState(data);
+    const [filteredData, setFilteredData] = useState(data.filter(item => !item.isTrending));
     const handleSearch = (e) => {
         e.preventDefault();
         if (e.target.value === '') {
