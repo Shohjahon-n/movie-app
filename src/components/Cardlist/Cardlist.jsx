@@ -2,48 +2,37 @@ import CardListItem from '../CardListItem/CardListItem';
 import './Cardlist.scss';
 import { useState, useEffect } from 'react';
 
-export default function Cardlist({ data }) {
+export default function Cardlist({ data, typeName }) {
     const [type, setType] = useState('');
-    const [notFound, setnotFound] = useState(false);
 
     useEffect(() => {
         let hasMovie = false;
         let hasTVSeries = false;
-        let allBookmarked = true;
 
-        if (data.length === 0) {
-            setnotFound(true);
-        } else {
-            setnotFound(false);
             data.forEach(item => {
-                if (!item.isBookmarked) {
-                    allBookmarked = false;
-                }
                 if (item.category === 'Movie') {
                     hasMovie = true;
                 } else if (item.category === 'TV Series') {
                     hasTVSeries = true;
                 }
             });
-
-            if (allBookmarked) {
-                setType('Bookmarks');
-            } else if (hasMovie && hasTVSeries) {
+            
+             if (hasMovie && hasTVSeries) {
                 setType('Recommended for you');
             } else if (hasMovie) {
                 setType('Movies');
             } else if (hasTVSeries) {
                 setType('TV Series');
-            }
+            
         }
     }, [data]);
 
     return (
         <>
-            <h4>{type}</h4>
+            <h4>{typeName ? typeName : type}</h4>
             <div className='cardlist'>
                 {
-                    notFound ? (
+                    data.length === 0 ? (
                         <p className='movie-not-found'>This movie is not found</p>
                     ) : (
                         data.map((item, idx) => {
