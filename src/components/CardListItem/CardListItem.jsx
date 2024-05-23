@@ -13,16 +13,10 @@ export default function CardListItem({ movieimg, movieName, movieDate, movieType
     }, [isBookmarked]);
 
     const toggleBookmark = (movieId) => {
-        fetch(`https://server2425.onrender.com/data/${movieId}`, {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ isBookmarked: !bookmarked })
-        }).then((data) => {
-            setBookmarked(!bookmarked);
-            window.location.reload();
-        }).catch(error => {
-            console.error('Error updating bookmark:', error);
-        });
+        setBookmarked(prev => ({
+            ...prev,
+            [movieId]: !prev[movieId]
+        }))
     };
 
     return (
