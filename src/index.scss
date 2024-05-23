@@ -38,24 +38,28 @@ a {
 
 .layout {
     display: flex;
+
+    .content {
+        width: 100%;
+
+        .loading-content {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .loading {
+                width: 99px;
+                height: 99px;
+                margin: 0 600px;
+            }
+        }
+    }
 }
 
 .main-center {
     display: flex;
-}
-
-.loading-content {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .loading {
-        width: 99px;
-        height: 99px;
-        margin: 0 auto;
-    }
 }
 
 @media only screen and (max-width: 890px) {

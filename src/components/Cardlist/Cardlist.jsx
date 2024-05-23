@@ -2,28 +2,28 @@ import CardListItem from '../CardListItem/CardListItem';
 import './Cardlist.scss';
 import { useState, useEffect } from 'react';
 
-export default function Cardlist({ data, typeName }) {
+export default function Cardlist({ data, typeName, setPatchData }) {
     const [type, setType] = useState('');
 
     useEffect(() => {
         let hasMovie = false;
         let hasTVSeries = false;
 
-            data.forEach(item => {
-                if (item.category === 'Movie') {
-                    hasMovie = true;
-                } else if (item.category === 'TV Series') {
-                    hasTVSeries = true;
-                }
-            });
-            
-             if (hasMovie && hasTVSeries) {
-                setType('Recommended for you');
-            } else if (hasMovie) {
-                setType('Movies');
-            } else if (hasTVSeries) {
-                setType('TV Series');
-            
+        data.forEach(item => {
+            if (item.category === 'Movie') {
+                hasMovie = true;
+            } else if (item.category === 'TV Series') {
+                hasTVSeries = true;
+            }
+        });
+
+        if (hasMovie && hasTVSeries) {
+            setType('Recommended for you');
+        } else if (hasMovie) {
+            setType('Movies');
+        } else if (hasTVSeries) {
+            setType('TV Series');
+
         }
     }, [data]);
 
@@ -47,6 +47,7 @@ export default function Cardlist({ data, typeName }) {
                                     movieDate={year}
                                     movieType={category}
                                     movieRating={rating}
+                                    setPatchData={setPatchData}
                                 />
                             );
                         })

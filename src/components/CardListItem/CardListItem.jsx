@@ -1,30 +1,39 @@
-import { useState } from 'react'
-import './CardListItem.scss'
+import { useState, useEffect } from 'react';
+import './CardListItem.scss';
 import movieImg from '../../assets/movie-ct.png';
-import tvImg from '../../assets/category-tv.png'
+import tvImg from '../../assets/category-tv.png';
 import saveImg from '../../assets/image/save.png';
 import savedImg from '../../assets/image/saved.png';
+
 export default function CardListItem({ movieimg, movieName, movieDate, movieType, movieRating, movieId, isBookmarked }) {
-    const [bookmarked, setBookmarked] = useState({});
+    const [bookmarked, setBookmarked] = useState(isBookmarked);
+
+    useEffect(() => {
+        setBookmarked(isBookmarked);
+    }, [isBookmarked]);
 
     const toggleBookmark = (movieId) => {
-        setBookmarked(prev => ({
-            ...prev,
-            [movieId]: !prev[movieId]
-        }));
+        fetch(`https://server2425.onrender.com/data/${movieId}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ isBookmarked: !bookmarked })
+        }).then((data) => {
+            setBookmarked(!bookmarked);
+            window.location.reload();
+        }).catch(error => {
+            console.error('Error updating bookmark:', error);
+        });
     };
+
     return (
         <div className='card_item'>
             <div className="movie_img">
-                {isBookmarked ?
-                    <img className='save' onClick={() => toggleBookmark(movieId)} src={savedImg} alt="Unsave" />
-                    :
-                    bookmarked[movieId] ?
-                        <img className='save' onClick={() => toggleBookmark(movieId)} src={savedImg} alt="Unsave" />
-                        :
-                        <img className='save' onClick={() => toggleBookmark(movieId)} src={saveImg} alt="Save" />
-                }
-
+                <img
+                    className='save'
+                    src={bookmarked ? savedImg : saveImg}
+                    alt={bookmarked ? "Unsave" : "Save"}
+                    onClick={() => toggleBookmark(movieId)}
+                />
                 <img src={movieimg.regular.large} alt={movieName} />
             </div>
             <div className='movie_info'>
@@ -43,5 +52,5 @@ export default function CardListItem({ movieimg, movieName, movieDate, movieType
                 </div>
             </div>
         </div>
-    )
+    );
 }

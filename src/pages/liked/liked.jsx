@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Search from '../../components/Search/Search';
 import Cardlist from '../../components/Cardlist/Cardlist';
 
-export default function Liked({ data }) {
+export default function Liked({ data, setPatchData }) {
     const [value, setValue] = useState('');
     const [filteredData, setFilteredData] = useState(data.filter(item => item.isBookmarked));
     const [movieData, setMovieData] = useState([]);
@@ -29,7 +29,7 @@ export default function Liked({ data }) {
         <div className='layout'>
             <div className="center_content container">
                 <Search handleSearch={handleSearch} value={value} />
-                <Cardlist data={movieData} typeName={"Bookmarked Movies"} />
+                <Cardlist setPatchData={setPatchData} data={movieData} typeName={"Bookmarked Movies"} />
                 <Cardlist data={tvData} typeName={"Bookmarked TV Series"} />
             </div>
         </div>

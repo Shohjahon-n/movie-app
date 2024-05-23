@@ -1,12 +1,17 @@
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/Sidebar/Sidebar';
-
-export default function Layout() {
+import loadingImg from '../assets/loadingImg.svg'
+export default function Layout({ loading }) {
     return (
         <div className="layout">
             <Sidebar />
             <div className="content">
-                <Outlet />
+                {loading ?
+                    <div className="loading-content">
+                        <img className='loading' src={loadingImg} alt="Loading..." />
+                    </div> :
+                    <Outlet />
+                }
             </div>
         </div>
     );
